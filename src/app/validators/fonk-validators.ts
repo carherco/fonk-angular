@@ -99,11 +99,11 @@ function email(): ValidatorFn {
 }
 
 const index = {
-  required: required,
-  email: email,
-  pattern: pattern,
-  minLength: minLength,
-  maxLength: maxLength
+  required,
+  email,
+  pattern,
+  minLength,
+  maxLength,
 };
 
 export { index as Validators };
