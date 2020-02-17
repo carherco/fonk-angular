@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FonkIntegratedValidatorsComponent } from './pages/fonk-integrated-validators/fonk-integrated-validators.component';
 import { FonkAloneUiComponent } from './pages/fonk-alone-ui/fonk-alone-ui.component';
 import { FonkIntegratedValidatorsUiComponent } from './pages/fonk-integrated-validators-ui/fonk-integrated-validators-ui.component';
+import { FonkGenericValidatorConverterComponent } from './pages/fonk-generic-validator-converter/fonk-generic-validator-converter.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FonkIntegratedValidatorsUiComponent } from './pages/fonk-integrated-val
     FonkIntegratedValidatorsComponent,
     FonkAloneUiComponent,
     FonkIntegratedValidatorsUiComponent,
+    FonkGenericValidatorConverterComponent,
   ],
   imports: [
     BrowserModule,
