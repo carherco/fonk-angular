@@ -1,0 +1,27 @@
+<h2>Integración de los validadores de Fonk en los formularios model driven de Angular</h2>
+
+<div>
+  <h1>Validación con Fonk</h1>
+  <form [formGroup]="userForm">
+    <div>
+      <label for="user">User: </label>
+      <input type="text" id="user" name="user" required formControlName="user">
+      <span *ngIf="userForm.get('user').errors?.fonkRequired">Campo obligatorio</span>
+      <span *ngIf="userForm.get('user').errors?.fonkEmail">No es un correo válido</span>
+    </div>
+
+    <div>{{ userForm.get('user').errors | json }}</div>
+
+    <div>
+      <label for="password">Email: </label>
+      <input type="text" id="password" name="password" required formControlName="password">
+      <span *ngIf="userForm.get('password').errors?.fonkRequired">Campo obligatorio</span>
+      <span *ngIf="userForm.get('password').errors?.fonkMaxLength">El texto es demasiado largo</span>
+    </div>
+
+    <div>{{ userForm.get('password').errors | json }}</div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
