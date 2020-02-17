@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from 'src/app/validators/fonk-validators';
+import { code } from './code-for-rendering';
 
 @Component({
   selector: 'app-fonk-integrated-validators',
@@ -9,32 +10,32 @@ import { Validators } from 'src/app/validators/fonk-validators';
 })
 export class FonkIntegratedValidatorsComponent implements OnInit {
 
-  userForm: FormGroup;
-
+  code = code;
   constructor() {
     const loginRecord = {
       user: '',
       password: '',
     };
 
-    this.userForm = new FormGroup({
-      user: new FormControl('', [Validators.required({trim: false}), Validators.email()]),
-      password: new FormControl('', [Validators.required({trim: true}), Validators.maxLength({length: 20})])
+    const userForm = new FormGroup({
+      user: new FormControl('default_value', [Validators.required({trim: false}), Validators.email()]),
+      password: new FormControl('default_value', [Validators.required({trim: true}), Validators.maxLength({length: 20})])
     });
 
-    console.log(this.userForm.valid);
-    console.log(this.userForm.get('user').errors);
-    console.log(this.userForm.get('password').errors);
+    userForm.get('user').setValue('');
+    console.log(userForm.get('user').valid);
+    console.log(userForm.get('user').errors);
 
-    this.userForm.get('user').setValue('Un email no valido@fonk');
-    console.log(this.userForm.valid);
-    console.log(this.userForm.get('user').errors);
+    loginRecord.user = 'John';
 
-    this.userForm.get('password').setValue('Un password demasiado largo');
-    console.log(this.userForm.valid);
-    console.log(this.userForm.get('password').errors);
+    userForm.get('user').setValue(loginRecord.user);
+    console.log(userForm.valid);
+    console.log(userForm.get('user').errors);
 
-    console.log(this.userForm.errors);
+    userForm.setValue(loginRecord);
+    console.log(userForm.valid);
+    console.log(userForm.get('user').errors);
+    console.log(userForm.get('password').errors);
   }
 
   ngOnInit(): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, createFormValidation } from '@lemoncode/fonk';
+import { code } from './code-for-rendering';
 
 @Component({
   selector: 'app-fonk-alone',
@@ -8,6 +9,7 @@ import { Validators, createFormValidation } from '@lemoncode/fonk';
 })
 export class FonkAloneComponent implements OnInit {
 
+  code = code;
   constructor() { }
 
   ngOnInit(): void {
@@ -43,8 +45,6 @@ export class FonkAloneComponent implements OnInit {
     formValidation.validateForm(loginRecord).then(validationResult => {
       console.log(validationResult);
     });
-
-
   }
 
 }
